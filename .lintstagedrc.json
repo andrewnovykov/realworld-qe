@@ -1,21 +1,4 @@
 {
-    "*.js": [
-        "eslint --report-unused-disable-directives --fix --quiet",
-        "prettier --write"
-    ],
-    "*.ts": [
-        "eslint --report-unused-disable-directives --fix --quiet",
-        "prettier --write"
-    ],
-    "*.hbs": [
-        "ember-template-lint --fix --quiet",
-        "prettier --write"
-    ],
-    "*.css": [
-        "stylelint --fix",
-        "prettier --write"
-    ],
-    "*.json": [
-        "prettier --write"
-    ]
+	"*.js": ["eslint --report-unused-disable-directives --fix --quiet", "prettier --write"],
+	"*.json": ["prettier --write"]
 }

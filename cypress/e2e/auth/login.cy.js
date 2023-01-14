@@ -1,5 +1,5 @@
 describe('Auth | Login', () => {
-  it('passes', () => {
-    cy.visit('https://qafromla.herokuapp.com/')
-  })
+	it('passes', () => {
+		cy.visit('https://qafromla.herokuapp.com/')
+	})
 })
