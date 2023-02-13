@@ -5,9 +5,11 @@ class homePage {
 	get signUpButton() {
 		return cy.get('[href="#/register"]')
 	}
-
+	get logInButton() {
+		return cy.get('[href="#/login"]')
+	}
 	visit() {
-		cy.visit('https://qafromla.herokuapp.com/')
+		cy.visit('/')
 	}
 }
 

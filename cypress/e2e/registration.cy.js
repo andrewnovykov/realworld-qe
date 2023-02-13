@@ -1,23 +1,26 @@
-import homePage from '../pages/home.page'
 import RegisatrationPage from '../pages/registration.page'
+import homePage from '../pages/home.page'
 
 describe('Registration', () => {
 	const uniqueId = Date.now()
-	const username = `uName${uniqueId}`
-	const email = `email${uniqueId}@gamil.com`
-	const password = `password${uniqueId}`
-
-	it('should be able to sign up with valid credential, QALA-2', () => {
+	const uniqUsername = `uName${uniqueId}`
+	const uniqEmail = `email${uniqueId}@gamil.com`
+	const uniqPassword = `password${uniqueId}`
+	const username = 'Babybus'
+	const email = 'babybus@gmail.com'
+	const password = 'QWERTY12345'
+	beforeEach(function () {
 		homePage.visit()
+	})
+	it('should be able to sign up with valid credential, QALA-2', () => {
 		homePage.signUpButton.click()
-		RegisatrationPage.signUpNewAccount(username, email, password)
-		cy.contains(username).should('be.visible')
+		RegisatrationPage.signUpNewAccount(uniqUsername, uniqEmail, uniqPassword)
+		cy.contains(uniqUsername).should('be.visible')
 	})
 
-	it('should not be able sign up with  an already registered email address and Username, QALA-6', () => {
-		homePage.visit()
+	it('should not be able sign up with  an already registered email address, QALA-6', () => {
 		homePage.signUpButton.click()
-		RegisatrationPage.signUpNewAccount(username, email, password)
+		RegisatrationPage.signUpNewAccount(uniqUsername, email, uniqPassword)
 		cy.contains('Email already exists.. try logging in').should('be.visible')
 	})
 })

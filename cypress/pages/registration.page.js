@@ -3,13 +3,13 @@ class RegisatrationPage {
 		return cy.get('input[name="username"]')
 	}
 	get emailInput() {
-		return cy.get('input[name="email"]')
+		return cy.get('input[type="email"]')
 	}
 	get passwordInput() {
-		return cy.get('input[name="password"]')
+		return cy.get('input[type="password"]')
 	}
 	get signUpRegistrationButton() {
-		return cy.get('button').contains('Sign up')
+		return cy.get('[data-cy="signup"]')
 	}
 
 	signUpNewAccount(username, email, password) {
