@@ -18,7 +18,7 @@ describe('Registration', () => {
 		cy.contains(uniqUsername).should('be.visible')
 	})
 
-	it.only('should not be able to sign up with empty fields, QALA-5', () => {
+	it('should not be able to sign up with empty fields, QALA-5', () => {
 		homePage.signUpButton.click()
 		RegisatrationPage.signUpRegistrationButton.click()
 		cy.contains('Username is required').should('be.visible')
