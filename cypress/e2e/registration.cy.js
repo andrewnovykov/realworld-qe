@@ -9,6 +9,7 @@ describe('Registration', () => {
 	const username = 'Babybus'
 	const email = 'babybus@gmail.com'
 	const password = 'QWERTY12345'
+
 	beforeEach(function () {
 		homePage.visit()
 	})
@@ -22,5 +23,11 @@ describe('Registration', () => {
 		homePage.signUpButton.click()
 		RegisatrationPage.signUpNewAccount(uniqUsername, email, uniqPassword)
 		cy.contains('Email already exists.. try logging in').should('be.visible')
+	})
+
+	it('should not be able to create a password with special characters, QALA-19', () => {
+		homePage.signUpButton.click()
+		RegisatrationPage.signUpNewAccount(uniqUsername, uniqEmail, ' ')
+		cy.contains('Password cannot contain empty characters').should('be.visible')
 	})
 })
