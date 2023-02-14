@@ -25,7 +25,7 @@ describe('Registration', () => {
 		cy.contains('Email already exists.. try logging in').should('be.visible')
 	})
 
-	it.only('should not be able to create a password with special characters, QALA-19', () => {
+	it('should not be able to create a password with special characters, QALA-19', () => {
 		homePage.signUpButton.click()
 		RegisatrationPage.signUpNewAccount(uniqUsername, uniqEmail, ' ')
 		cy.contains('Password cannot contain empty characters').should('be.visible')
