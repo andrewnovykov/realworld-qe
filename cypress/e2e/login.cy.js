@@ -4,6 +4,8 @@ describe('Login', () => {
 	const username = 'Babybus'
 	const email = 'babybus@gmail.com'
 	const password = 'QWERTY12345'
+	const invalidEmail = 'invalidemail@gmail.com'
+	const invalidPassword = 'invalid'
 	beforeEach(function () {
 		homePage.visit()
 	})
@@ -11,5 +13,10 @@ describe('Login', () => {
 		homePage.logInButton.click()
 		LoginPage.logIn(email, password)
 		cy.contains(username).should('be.visible')
+	})
+	it('should not be able to login with invalid email, QALA-8', () => {
+		homePage.logInButton.click()
+		LoginPage.logIn(invalidEmail, password)
+		cy.contains('Email not found sign in first').should('be.visible')
 	})
 })
