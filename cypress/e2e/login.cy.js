@@ -19,4 +19,9 @@ describe('Login', () => {
 		LoginPage.logIn(invalidEmail, password)
 		cy.contains('Email not found sign in first').should('be.visible')
 	})
+	it('should not be able to login with invalid password, QALA-9', () => {
+		homePage.logInButton.click()
+		LoginPage.logIn(email, invalidPassword)
+		cy.contains('Wrong email/password combination').should('be.visible')
+	})
 })
