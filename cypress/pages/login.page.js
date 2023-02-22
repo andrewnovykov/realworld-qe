@@ -6,7 +6,7 @@ class LoginPage {
 		return cy.get('input[type="password"]')
 	}
 	get signInRegistrationButton() {
-		return cy.get('button').contains('Sign ins')
+		return cy.get('[data-cy="signin"]')
 	}
 
 	logIn(email, password) {
@@ -16,4 +16,4 @@ class LoginPage {
 	}
 }
 
-module.export = new LoginPage()
+module.exports = new LoginPage()
