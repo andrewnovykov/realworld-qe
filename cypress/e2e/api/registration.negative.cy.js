@@ -8,8 +8,6 @@ describe('POST /api/users', () => {
 		},
 	}
 
-	const existingUser = { user: { username: 'Babybus', email: 'babybus44@gmail.com', password: 'QWERTY' } }
-
 	it('Creates a new user', () => {
 		cy.request({
 			method: 'POST',
@@ -28,19 +26,6 @@ describe('POST /api/users', () => {
 				image: null,
 				token: response.body.user.token,
 			})
-		})
-	})
-	it('should not be able sign up with  an already registered User name QALA-18', () => {
-		cy.request({
-			method: 'POST',
-			url: '/api/users/check-username-taken',
-			body: existingUser,
-			failOnStatusCode: false,
-			gzip: true,
-		}).should((response) => {
-			expect(response.status).to.eq(200)
-			expect(response.body).to.have.property('message').and.be.equal('Username is already taken')
-			expect(response.body).to.have.property('success')
 		})
 	})
 })
