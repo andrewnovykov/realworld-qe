@@ -53,11 +53,9 @@ Cypress.Commands.add('loginAsMainUserToken', () => {
 			body: loginData,
 			failOnStatusCode: false,
 			gzip: true,
+		}).then((response) => {
+			expect(response.status).to.eq(200)
+			expect(response.body.user).to.have.property('token')
 		})
-			.its('body.user.token')
-			.then((token) => {
-				// Return the token from the callback
-				return token
-			})
 	})
 })

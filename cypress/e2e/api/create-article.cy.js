@@ -1,11 +1,7 @@
 describe('POST /api/articles', () => {
-	let myToken
 	it('should be able to create an article with with Valid Inputs, QALA-25', () => {
-		cy.loginAsMainUser().then((token) => {
+		cy.loginAsMainUserToken().then((token) => {
 			expect(token).to.exist
-			// Cypress.env('AUTH_TOKEN', token)
-			console.log(`TOKEN : ->>> ${token}`)
-			myToken = token
 		})
 		// Perform some action that requires the user to be logged in
 		//Create Article
@@ -23,7 +19,7 @@ describe('POST /api/articles', () => {
 			method: 'POST',
 			url: '/api/articles',
 			headers: {
-				Authorization: myToken,
+				Authorization: '',
 			},
 			body: createArticle,
 			failOnStatusCode: false,
