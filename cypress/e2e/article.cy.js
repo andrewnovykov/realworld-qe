@@ -12,7 +12,8 @@ describe('Login', () => {
 	it('should be able to create an article with  Valid Inputs, QALA-25', () => {
 		homePage.logInButton.click()
 		LoginPage.logIn(email, password)
+		cy.contains(username).should('be.visible')
 		UserPage.newArticleButton.click()
-		// ArticlePage.CreateNewArticle('Moon', 'About Moon', 'Moon is Big', 'moon')
+		ArticlePage.CreateNewArticle('Moon', 'About Moon', 'Moon is Big', 'moon')
 	})
 })

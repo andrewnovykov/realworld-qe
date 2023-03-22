@@ -14,3 +14,5 @@ class UserPage {
 		this.logOutButton.click()
 	}
 }
+
+module.exports = new UserPage()
