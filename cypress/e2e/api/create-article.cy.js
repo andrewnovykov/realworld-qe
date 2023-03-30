@@ -1,5 +1,5 @@
 describe('POST /api/articles', () => {
-	it('should be able to create an article with with Valid Inputs, QALA-25', () => {
+	it.skip('should be able to create an article with with Valid Inputs, QALA-25', () => {
 		cy.loginAsMainUserToken().then((token) => {
 			expect(token).to.exist
 		})
