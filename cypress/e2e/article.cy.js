@@ -6,6 +6,7 @@ describe('Login', () => {
 	const username = 'Babybus'
 	const email = 'babybus@gmail.com'
 	const password = 'QWERTY12345'
+	const title = `Moon-${Math.floor(Math.random() * 100000)}`
 	beforeEach(function () {
 		homePage.visit()
 	})
@@ -14,6 +15,8 @@ describe('Login', () => {
 		LoginPage.logIn(email, password)
 		cy.contains(username).should('be.visible')
 		UserPage.newArticleButton.click()
-		ArticlePage.CreateNewArticle('Moon', 'About Moon', 'Moon is Big', 'moon')
+		ArticlePage.CreateNewArticle(title, 'About Moon', 'Moon is Big', 'moon')
+		cy.url().should('include', '/#/article')
+		cy.contains(title)
 	})
 })

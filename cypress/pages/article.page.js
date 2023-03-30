@@ -12,14 +12,14 @@ class ArticlePage {
 		return cy.get('input[name="tags"]')
 	}
 	get publishArticleButton() {
-		cy.get('[data-testid="publish-article-button"][type="submit"]')
+		cy.get('button[type=submit]').click()
 	}
 	CreateNewArticle(title, description, body, tags) {
 		this.articleTitleInput.type(title)
 		this.articleDescriptionInput.type(description)
 		this.articleBodyInput.type(body)
 		this.articleTagsInput.type(tags)
-		this.publishArticleButton.click()
+		this.publishArticleButton
 	}
 }
 
