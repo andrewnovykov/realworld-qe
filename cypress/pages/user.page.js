@@ -8,6 +8,9 @@ class UserPage {
 	get newArticleButton() {
 		return cy.get('[href="#/editor"]')
 	}
+	get globalFeedTab() {
+		return cy.contains('button', 'Global Feed')
+	}
 	LogOut() {
 		this.userMenuDropdown.click()
 		this.logOutButton.click()
