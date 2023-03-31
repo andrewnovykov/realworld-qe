@@ -16,10 +16,10 @@ class ArticlePage {
 	}
 	CreateNewArticle(title = null, description = null, body = null, tags = null) {
 		if (title !== null) this.articleTitleInput.type(title)
-		if (title !== null) this.articleDescriptionInput.type(description)
-		if (title !== null) this.articleBodyInput.type(body)
-		if (title !== null) this.articleTagsInput.type(tags)
-		if (title !== null) this.publishArticleButton
+		if (description !== null) this.articleDescriptionInput.type(description)
+		if (body !== null) this.articleBodyInput.type(body)
+		if (tags !== null) this.articleTagsInput.type(tags)
+		this.publishArticleButton
 	}
 }
 

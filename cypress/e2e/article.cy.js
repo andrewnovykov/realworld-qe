@@ -20,10 +20,13 @@ describe('Login', () => {
 		cy.contains(title)
 	})
 	it('should be able to create an article with out  tags field, QALA-30', () => {
+		const newTitle = `1${title}`
 		homePage.logInButton.click()
 		LoginPage.logIn(email, password)
 		cy.contains(username).should('be.visible')
 		UserPage.newArticleButton.click()
-		ArticlePage.CreateNewArticle(title, 'About Moon', 'Moon is Big', 'moon')
+		ArticlePage.CreateNewArticle(newTitle, 'About Moon', 'Moon is Big', null)
+		cy.url().should('include', '/#/article')
+		cy.contains(newTitle)
 	})
 })
