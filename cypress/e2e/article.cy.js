@@ -39,7 +39,7 @@ describe('Login', () => {
 		UserPage.globalFeedTab.click()
 		cy.get(oldTitle).should('not.exist')
 	})
-	it.only('should be able to write and post comment under article, QALA-33', () => {
+	it('should be able to write and post comment under article, QALA-33', () => {
 		const oldOldTitle = `3${title}`
 		homePage.logInButton.click()
 		LoginPage.logIn(email, password)
