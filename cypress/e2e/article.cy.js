@@ -39,4 +39,14 @@ describe('Login', () => {
 		UserPage.globalFeedTab.click()
 		cy.get(oldTitle).should('not.exist')
 	})
+	it.only('should be able to write and post comment under article, QALA-33', () => {
+		const oldOldTitle = `3${title}`
+		homePage.logInButton.click()
+		LoginPage.logIn(email, password)
+		UserPage.newArticleButton.click()
+		ArticlePage.CreateNewArticle(oldOldTitle, 'About Moon', 'Moon is Big', 'moon, satellite')
+		ArticlePage.PostComment('This is my comment.')
+		cy.get('p.card-text').should('have.text', 'This is my comment.')
+		cy.get('a.comment-author').should('exist')
+	})
 })

@@ -17,6 +17,12 @@ class ArticlePage {
 	get deleteArticleButton() {
 		return cy.get('.article-actions').contains('button', 'Delete Article')
 	}
+	get commentBox() {
+		return cy.get('textarea.form-control[placeholder="Write a comment..."]')
+	}
+	get postCommentButton() {
+		return cy.get('button').contains('Post Comment')
+	}
 	CreateNewArticle(title = null, description = null, body = null, tags = null) {
 		if (title !== null) this.articleTitleInput.type(title)
 		if (description !== null) this.articleDescriptionInput.type(description)
@@ -26,6 +32,10 @@ class ArticlePage {
 	}
 	DeleteArticle() {
 		this.deleteArticleButton.click()
+	}
+	PostComment(comment) {
+		this.commentBox.type(comment)
+		this.postCommentButton.click()
 	}
 }
 
