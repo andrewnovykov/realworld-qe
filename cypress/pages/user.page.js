@@ -5,6 +5,9 @@ class UserPage {
 	get logOutButton() {
 		return cy.get('.ion-log-out')
 	}
+	get newArticleButton() {
+		return cy.get('[href="#/editor"]')
+	}
 	LogOut() {
 		this.userMenuDropdown.click()
 		this.logOutButton.click()
