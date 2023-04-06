@@ -19,6 +19,13 @@ describe('Login', () => {
 		LoginPage.logIn(invalidEmail, password)
 		cy.contains('Email not found sign in first').should('be.visible')
 	})
+
+	it('should not be able to login with empty fields, QALA-23', () => {
+		homePage.logInButton.click()
+		LoginPage.signInRegistrationButton.click()
+		cy.contains('Email is required').should('be.visible')
+		cy.contains('Password is required').should('be.visible')
+})
 	it('should not be able to login with invalid password, QALA-9', () => {
 		homePage.logInButton.click()
 		LoginPage.logIn(email, invalidPassword)
