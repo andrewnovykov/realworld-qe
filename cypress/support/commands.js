@@ -33,6 +33,25 @@ Cypress.Commands.add('getToken', () => {
 	})
 })
 
+Cypress.Commands.add('getUserToken', (email, password) => {
+	const loginData = {
+		user: {
+			email,
+			password,
+		},
+	}
+
+	return cy
+		.request({
+			method: 'POST',
+			url: '/api/users/login',
+			body: loginData,
+			failOnStatusCode: false,
+			gzip: true,
+		})
+		.its('body.user.token')
+})
+
 //
 
 //
