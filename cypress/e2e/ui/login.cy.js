@@ -1,6 +1,7 @@
 import LoginPage from '../../pages/login.page'
 import homePage from '../../pages/home.page'
 describe('Login', () => {
+	//CLEAN UP ! USE FIXTURES
 	const username = 'Babybus'
 	const email = 'babybus@gmail.com'
 	const password = 'QWERTY12345'

@@ -1,9 +1,11 @@
 import RegisatrationPage from '../../pages/registration.page'
 import homePage from '../../pages/home.page'
+import { uid } from 'uid'
 
 describe('Registration', () => {
+	//CLEAN UP ! USE FIXTURES USE UID!
 	const uniqueId = Date.now()
-	const uniqUsername = `uName${uniqueId}`
+	const uniqUsername = `uName${uid(3)}`
 	const uniqEmail = `email${uniqueId}@gamil.com`
 	const uniqPassword = `password${uniqueId}`
 	const username = 'Babybus'
