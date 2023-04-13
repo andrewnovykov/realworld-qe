@@ -1,5 +1,5 @@
-import RegisatrationPage from '../pages/registration.page'
-import homePage from '../pages/home.page'
+import RegisatrationPage from '../../pages/registration.page'
+import homePage from '../../pages/home.page'
 
 describe('Registration', () => {
 	const uniqueId = Date.now()
@@ -37,7 +37,7 @@ describe('Registration', () => {
 		homePage.signUpButton.click()
 		RegisatrationPage.signUpNewAccount('Baby bus', uniqEmail, uniqPassword)
 		cy.contains('Username cannot contain empty characters').should('be.visible')
-})
+	})
 	it('should not be able to create a password with special characters, QALA-19', () => {
 		homePage.signUpButton.click()
 		RegisatrationPage.signUpNewAccount(uniqUsername, uniqEmail, ' ')
