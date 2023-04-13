@@ -1,39 +1,23 @@
 Cypress.Commands.add('loginAsMainUser', () => {
-	cy.fixture('user.data').then((userData) => {
-		const loginData = {
-			user: {
-				email: userData.email,
-				password: userData.password,
+	cy.getToken().then((token) => {
+		const localStorageData = JSON.stringify({
+			headers: {
+				Authorization: token,
 			},
-		}
-
-		cy.request({
-			method: 'POST',
-			url: '/api/users/login',
-			body: loginData,
-			failOnStatusCode: false,
-			gzip: true,
+			isAuth: true,
 		})
-			.its('body.user.token')
-			.should('exist')
+		localStorage.setItem('loggedUser', localStorageData)
 	})
 })
 
 Cypress.Commands.add('login', (email, password) => {
-	const loginData = {
-		user: {
-			email: email,
-			password: password,
-		},
-	}
-
-	cy.request({
-		method: 'POST',
-		url: '/api/users/login',
-		body: loginData,
-		failOnStatusCode: false,
-		gzip: true,
+	cy.getUserToken(email, password).then((token) => {
+		const localStorageData = JSON.stringify({
+			headers: {
+				Authorization: token,
+			},
+			isAuth: true,
+		})
+		localStorage.setItem('loggedUser', localStorageData)
 	})
-		.its('body.user.token')
-		.should('exist')
 })

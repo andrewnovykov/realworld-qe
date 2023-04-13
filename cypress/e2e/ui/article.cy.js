@@ -3,7 +3,7 @@ import LoginPage from '../../pages/login.page'
 import UserPage from '../../pages/user.page'
 import homePage from '../../pages/home.page'
 describe('Login', () => {
-	//CLEAN UP ! USE FIXTURES
+	//CLEAN UP ! USE ENV
 	const username = 'Babybus'
 	const email = 'babybus@gmail.com'
 	const password = 'QWERTY12345'

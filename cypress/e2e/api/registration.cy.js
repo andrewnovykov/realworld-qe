@@ -1,4 +1,5 @@
 describe('POST /api/users', () => {
+	//USE UID
 	const uniqueId = Date.now()
 	const userData = {
 		user: {
@@ -8,7 +9,8 @@ describe('POST /api/users', () => {
 		},
 	}
 
-	const existingUser = { user: { username: 'Babybus', email: 'babybus44@gmail.com', password: 'QWERTY' } }
+	const mainUser = Cypress.env('user')
+	const existingUser = { user: { username: mainUser.username, email: mainUser.email, password: mainUser.password } }
 
 	it('Creates a new user', () => {
 		cy.request({
