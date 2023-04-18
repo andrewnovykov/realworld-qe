@@ -1,14 +1,14 @@
-import RegisatrationPage from '../pages/registration.page'
-import homePage from '../pages/home.page'
+import RegisatrationPage from '../../pages/registration.page'
+import homePage from '../../pages/home.page'
+import { uid } from 'uid'
 
 describe('Registration', () => {
+	//CLEAN UP ! USE ENV and UID
 	const uniqueId = Date.now()
-	const uniqUsername = `uName${uniqueId}`
+	const uniqUsername = `uName${uid(3)}`
 	const uniqEmail = `email${uniqueId}@gamil.com`
 	const uniqPassword = `password${uniqueId}`
-	const username = 'Babybus'
 	const email = 'babybus@gmail.com'
-	const password = 'QWERTY12345'
 
 	beforeEach(function () {
 		homePage.visit()
@@ -37,7 +37,7 @@ describe('Registration', () => {
 		homePage.signUpButton.click()
 		RegisatrationPage.signUpNewAccount('Baby bus', uniqEmail, uniqPassword)
 		cy.contains('Username cannot contain empty characters').should('be.visible')
-})
+	})
 	it('should not be able to create a password with special characters, QALA-19', () => {
 		homePage.signUpButton.click()
 		RegisatrationPage.signUpNewAccount(uniqUsername, uniqEmail, ' ')

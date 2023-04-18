@@ -9,6 +9,7 @@
 		"cypress/no-async-tests": "error",
 		"cypress/no-pause": "error",
 		"quotes": ["error", "single", { "avoidEscape": true, "allowTemplateLiterals": false }],
-		"max-len": ["error", { "code": 120, "ignoreUrls": true }]
+		"max-len": ["error", { "code": 120, "ignoreUrls": true }],
+		"no-unused-vars": "error"
 	}
 }
